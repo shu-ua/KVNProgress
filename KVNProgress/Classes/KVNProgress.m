@@ -1245,6 +1245,10 @@ static KVNProgressConfiguration *configuration;
 
 - (UIImage *)blurredScreenShot
 {
+    if (self.originalKeyWindow == nil) {
+        self.originalKeyWindow = [[[UIApplication sharedApplication] delegate] window];
+    }
+    
 	return [self blurredScreenShotWithRect:self.originalKeyWindow.frame];
 }
 
